@@ -1,33 +1,51 @@
 package com.danbramos.desafio_bancao.service;
 
-import com.danbramos.desafio_bancao.model.Transaction;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.danbramos.desafio_bancao.dtos.TransactionDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service class for managing transactions.
+ * This class provides methods to add, delete, and retrieve transactions within
+ * a specific time interval.
+ */
 @Service
+@Slf4j
 public class TransactionService {
-    private static final Logger log = LoggerFactory.getLogger(TransactionService.class);
-    private final List<Transaction> transactionList = new ArrayList<>();
+    private final List<TransactionDTO> transactionDTOList = new ArrayList<>();
 
-    public void add(Transaction transaction) {
-        log.info("Adicionando transação de valor " + transaction.value() + " em: " + transaction.dateTime());
-        transactionList.add(transaction);
+    /**
+     * Adds a new transaction to the transaction list.
+     *
+     * @param transactionDTO The transaction to be added.
+     */
+    public void add(TransactionDTO transactionDTO) {
+        log.info("Adicionando transação de valor " + transactionDTO.value() + " em: " + transactionDTO.dateTime());
+        transactionDTOList.add(transactionDTO);
     }
 
-    public void delete () {
+    /**
+     * Deletes all transactions from the transaction list.
+     */
+    public void delete() {
         log.info("Limpando lista de transações");
-        transactionList.clear();
+        transactionDTOList.clear();
     }
 
-    public List<Transaction> getListFromInterval(int intervalInS) {
-        log.info("Buscando transações nos últimos " + intervalInS + " segundos");
+    /**
+     * Retrieves a list of transactions that occurred within a specified time interval.
+     *
+     * @param intervalInS The time interval in seconds to consider.
+     * @return A list of transactions that occurred within the specified interval.
+     */
+    public List<TransactionDTO> getListFromInterval(int intervalInS) {
+        log.info("Buscando transações nos últimos {} segundos", intervalInS);
         OffsetDateTime dateTimeInterval = OffsetDateTime.now().minusSeconds(intervalInS);
-        return transactionList.stream().filter(transaction ->
-                transaction.dateTime().isAfter(dateTimeInterval)).toList();
+        return transactionDTOList.stream().filter(transactionDTO ->
+                transactionDTO.dateTime().isAfter(dateTimeInterval)).toList();
     }
 }
