@@ -1,7 +1,5 @@
 # Desafio de Programação - API Bancária
 
-[![Java CI with Gradle](https://github.com/nihansk/desafio-bancao/actions/workflows/gradle.yml/badge.svg)](https://github.com/nihansk/desafio-bancao/actions/workflows/gradle.yml) [![Docker Image CI](https://github.com/nihansk/desafio-bancao/actions/workflows/docker-image.yml/badge.svg)](https://github.com/nihansk/desafio-bancao/actions/workflows/docker-image.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4c98593f3b3741bb85c5c24462e6c19c)](https://app.codacy.com/gh/nihansk/desafio-bancao/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-
 Este projeto é uma API REST para gerenciar transações bancárias e gerar estatísticas, idealizado como experiência de aprendizado. É desenvolvido em Java 21 com Spring Boot 3. O projeto é baseado no desafio: [rafaellins-itau/desafio-itau-vaga-99-junior](https://github.com/rafaellins-itau/desafio-itau-vaga-99-junior).
 
 ## 💡 Funcionalidades
