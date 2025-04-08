@@ -1,5 +1,7 @@
 # Desafio de Programação - API Bancária
 
+[![Java CI with Gradle](https://github.com/nihansk/desafio-bancao/actions/workflows/gradle.yml/badge.svg)](https://github.com/nihansk/desafio-bancao/actions/workflows/gradle.yml) [![Docker Image CI](https://github.com/nihansk/desafio-bancao/actions/workflows/docker-image.yml/badge.svg)](https://github.com/nihansk/desafio-bancao/actions/workflows/docker-image.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4c98593f3b3741bb85c5c24462e6c19c)](https://app.codacy.com/gh/nihansk/desafio-bancao/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
 Este projeto é uma API REST para gerenciar transações bancárias e gerar estatísticas, idealizado como experiência de aprendizado. É desenvolvido em Java 21 com Spring Boot 3. O projeto é baseado no desafio: [rafaellins-itau/desafio-itau-vaga-99-junior](https://github.com/rafaellins-itau/desafio-itau-vaga-99-junior).
 
 ## 💡 Funcionalidades
@@ -17,6 +19,8 @@ Este projeto é uma API REST para gerenciar transações bancárias e gerar esta
 *   Lombok
 *   SpringDoc OpenAPI (Swagger UI)
 *   Spring Actuator
+*   JUnit 5 & Mockito (Testes)
+*   JaCoCo (Cobertura de Testes)
 
 ## Pré-requisitos
 
@@ -70,12 +74,37 @@ Com a aplicação em execução (localmente ou via Docker), acesse a documentaç
 
 `http://localhost:8080/swagger-ui.html`
 
+## 🧪 Testes Unitários
+
+O projeto utiliza JUnit 5 e Mockito para testes unitários, focando nas camadas de Controller e Service.
+
+Para executar os testes, utilize o wrapper do Gradle:
+
+```bash
+./gradlew test
+```
+*No Windows, use `.\gradlew test`*
+
+Isso executará todos os testes unitários definidos no diretório `src/test/java`.
+
+## 📊 Cobertura de Testes (JaCoCo)
+
+Utilizamos o plugin JaCoCo para medir a cobertura do código pelos testes unitários.
+
+Após executar os testes (com `./gradlew test` ou `./gradlew build`), o relatório de cobertura é gerado automaticamente.
+
+Para visualizar o relatório HTML, abra o seguinte arquivo no seu navegador:
+
+`./build/reports/jacoco/test/html/index.html`
+
+Este relatório detalha a cobertura por pacote, classe, método e linha.
+
 ## 🗺️ Roadmap de Features
 - [x] Funcionalidades básicas da API
    - [x] Endpoint `POST /transacao`
    - [x] Endpoint `DELETE /transacao`
    - [x] Endpoint `GET /estatistica`
-- [ ] Unit tests
+- [x] Unit tests (Service & Controller)
 - [x] Dockerização
 - [x] Logs
 - [x] Observabilidade (Actuator)
@@ -83,3 +112,4 @@ Com a aplicação em execução (localmente ou via Docker), acesse a documentaç
 - [x] Documentação da API (Swagger)
 - [x] Documentação do projeto (README)
 - [x] Configuração do endpoint `GET /estatistica` (cálculo no último minuto)
+- [x] Cobertura de Testes (JaCoCo)
