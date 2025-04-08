@@ -28,8 +28,17 @@ public class StatService {
      * within the specified interval.
      */
     public StatsDTO getStats(int intervalInS) {
-        log.info("Capturando estatísticas das transações realizadas nos últimos {} segundos", intervalInS);
-        List<TransactionDTO> transactionDTOList = transactionService.getListFromInterval(intervalInS);
+        if (intervalInS < 0) {
+            intervalInS = 60;
+        }
+        List<TransactionDTO> transactionDTOList;
+        if(intervalInS == 0) {
+            log.info("Capturando estatísticas das transações realizadas desde sempre");
+            transactionDTOList = transactionService.getList();
+        } else {
+            log.info("Capturando estatísticas das transações realizadas nos últimos {} segundos", intervalInS);
+            transactionDTOList = transactionService.getListFromInterval(intervalInS);
+        }
         if (transactionDTOList.isEmpty()) {
             log.info("Lista está vazia, retornando estatísticas default");
             return new StatsDTO(0L, 0.0, 0.0, 0.0, 0.0);
