@@ -1,5 +1,10 @@
 # Desafio de Programação - API Bancária
 
+[![Built with Spring Boot](https://img.shields.io/badge/Built%20with-Spring%20Boot-8BC34A.svg)](https://spring.io/projects/spring-boot)
+[![Java](https://img.shields.io/badge/Java-21-F44336.svg)](https://adoptium.net/)
+[![Coverage](https://img.shields.io/badge/Coverage-97%25-blueviolet)](target/site/jacoco/index.html)
+[![Docker Ready](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)
+
 Este projeto é uma API REST para gerenciar transações bancárias e gerar estatísticas, idealizado como experiência de aprendizado. É desenvolvido em Java 21 com Spring Boot 3. O projeto é baseado no desafio: [rafaellins-itau/desafio-itau-vaga-99-junior](https://github.com/rafaellins-itau/desafio-itau-vaga-99-junior).
 
 ## 💡 Funcionalidades
