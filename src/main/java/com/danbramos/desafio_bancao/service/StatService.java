@@ -32,7 +32,7 @@ public class StatService {
             intervalInS = 60;
         }
         List<TransactionDTO> transactionDTOList;
-        if(intervalInS == 0) {
+        if (intervalInS == 0) {
             log.info("Capturando estatísticas das transações realizadas desde sempre");
             transactionDTOList = transactionService.getList();
         } else {
