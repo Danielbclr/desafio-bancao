@@ -99,6 +99,8 @@ Para visualizar o relatório HTML, abra o seguinte arquivo no seu navegador:
 
 Este relatório detalha a cobertura por pacote, classe, método e linha.
 
+![image](https://github.com/user-attachments/assets/21f33d1c-da67-478c-ad90-b3c079f36f62)
+
 ## 🗺️ Roadmap de Features
 - [x] Funcionalidades básicas da API
    - [x] Endpoint `POST /transacao`
